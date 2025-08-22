@@ -47,8 +47,7 @@ def build_value_element(pyval):
     elif isinstance(pyval, float):
         ET.SubElement(v, 'double').text = repr(pyval)
     elif isinstance(pyval, dt.datetime):
-        print(pyval.isoformat())
-        ET.SubElement(v, 'dateTime.iso8601').text = pyval.strftime("%Y%m%dT%H:%M:%S")
+        ET.SubElement(v, 'dateTime.iso8601').text = str(pyval.isoformat())
     elif isinstance(pyval, list):
         arr = ET.SubElement(v, 'array')
         data = ET.SubElement(arr, 'data')
